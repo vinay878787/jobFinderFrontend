@@ -1,0 +1,98 @@
+.filterWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.filterContainer {
+  width: 50vw;
+  margin-top: 2vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vw;
+  box-shadow: 0px 0px 25px #ff202040;
+}
+.filterSkills {
+  display: flex;
+  gap: 2vw;
+  cursor: pointer;
+}
+.searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  color: #9c9c9c;
+  cursor: pointer;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  margin-right: 10px;
+  color: #e3e3e3;
+  font-size: 1.5vw;
+  font-weight: 900;
+}
+
+input[type="text"] {
+  width: 40vw;
+  padding-left: 30px;
+  border-radius: 0.5vw;
+}
+.inputSelect {
+  padding: 0.5vw;
+  width: 7vw;
+  text-align: center;
+  border: 2px solid #e3e3e3;
+  cursor: pointer;
+  color: #9c9c9c;
+  border-radius: 0.5vw;
+}
+.filterBtn {
+  width: 8vw;
+  padding: 0.5vw;
+  background-color: #ed5353;
+  border: none;
+  color: var(--light-color);
+  border-radius: 0.2vw;
+  font-weight: 600;
+  cursor: pointer;
+}
+.clearBtn {
+  border: none;
+  background-color: var(--light-color);
+  color: #ed5353;
+  font-weight: 600;
+  cursor: pointer;
+}
+.selectedSkills {
+  width: 15vw;
+  display: flex;
+  gap: 0.5vw;
+  flex-wrap: wrap;
+}
+.filteredSkill {
+  width: 5vw;
+  height: 2vw;
+  padding: 0.3vw;
+  background: #ffeeee;
+  color: var(--dark-color);
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.deleteFilter {
+  width: 2vw;
+  height: 2vw;
+  text-align: center;
+  background-color: #ff6b6b;
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

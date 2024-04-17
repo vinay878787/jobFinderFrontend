@@ -1,0 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --light-color:#fff;
+  --dark-color:#000;
+  --bg-color:#ED5353;
+}

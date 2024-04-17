@@ -1,0 +1,123 @@
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .registerContainer {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+  }
+  .subContainer {
+    width: 51vw;
+  }
+  .formContainer {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+  }
+  .registerHeading,
+  .registerParagraph {
+    padding: 0.5vw;
+  }
+  .registerParagraph {
+    font-size: 1vw;
+    font-weight: 600;
+    color: #525252;
+  }
+  input {
+    width: 30vw;
+    padding: 0.9vw;
+    border: 2px solid #c2c2c2;
+    color: #525252;
+    border-radius: 0.3vw;
+  }
+  input[type="checkbox"] {
+    width: 1vw;
+    background-color: #858585;
+    text-align: left;
+  }
+  .btn {
+    width: 13vw;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+    font-weight: 600;
+    background-color: var(--bg-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 0.2vw;
+  }
+  .backgroundImgContainer {
+    width: 34%;
+    height: 99.5vh;
+    position: relative;
+    /* border: 2px solid red; */
+  }
+  .bgImage {
+    width: 33vw;
+    height: 100vh;
+    /* border: 2px solid blue; */
+  }
+  .backgroundImgHeading {
+    position: absolute;
+    top: 2vw;
+    left: 8vw;
+    color: var(--light-color);
+  }
+  .signinLink {
+    color: var(--dark-color);
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .backgroundImgContainer,
+    .bgImage {
+      display: none;
+    }
+    .registerContainer {
+      width: 100vw;
+      height: 100vh;
+      gap: 5vw;
+    }
+    .mainContainer {
+      font-size: 4vw;
+    }
+  
+    .subContainer {
+      width: 70%;
+    }
+    .formContainer {
+      width: 70vw;
+      gap: 5vw;
+    }
+    input {
+      width: 65vw;
+      padding: 3vw;
+      font-size: 4vw;
+    }
+    input[type="checkbox"] {
+      width: 4vw;
+    }
+    .btn {
+      width: 65vw;
+      font-size: 4vw;
+      padding: 1.5vw;
+    }
+    .registerHeading {
+      font-size: 8vw;
+    }
+    .registerParagraph {
+      font-size: 3vw;
+    }
+    .isAccount {
+      font-size: 5vw;
+    }
+  }
+  .error {
+    color: red;
+  }
+  

@@ -1,0 +1,51 @@
+.jobDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    gap:3.5vw;
+    border: 2px solid blue;
+    align-items: center;
+    
+}
+.jobDetailsContainer1{
+    width:60vw;
+    text-align: center;
+    position: sticky;
+    top:130px;
+    border:2px solid orange;
+    padding: 2vw;
+}
+.jobDetailsContainer2{
+    display: flex;
+    flex-direction: column;
+    gap:2vw;
+    width:60vw;
+    border:2px solid green;
+    padding: 2vw;
+}
+.logo{
+    width:3vw;
+}
+.jobDetailsFirstSubContainer{
+    display: flex;
+    gap:1vw;
+    align-items: center;
+}
+.companyDetails{
+    display: flex;
+    align-items: center;
+}
+.semiSubContainer2{
+    display: flex;
+    justify-content: space-between;
+}
+.semiSubContainer2>button{
+    width:8vw;
+}
+.jobDetailsThirdSubContainer{
+    display: flex;
+    gap:2vw;
+}
+.skillContainer{
+    display: flex;
+    gap:2vw;
+}

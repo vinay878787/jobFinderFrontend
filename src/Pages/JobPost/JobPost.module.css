@@ -1,0 +1,79 @@
+.createContainer {
+  display: flex;
+  justify-content: space-between;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+.createForm {
+  padding: 2vw;
+}
+.createForm h1 {
+  margin-bottom: 1vw;
+}
+.createImg {
+  position: relative;
+}
+.createHeading {
+  position: absolute;
+  top: 10px;
+  left: 150px;
+  color: var(--light-color);
+}
+.createBtn {
+  display: flex;
+  /* margin: 0 auto; */
+  justify-content: end;
+  gap: 1vw;
+}
+.createSubContainer {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addBtn {
+  color: var(--light-color);
+  background-color: #ed5353;
+  padding: 0.5vw;
+  width: 10vw;
+}
+.cancelBtn {
+  border: 2px solid #c2c2c2;
+  color: #c2c2c2;
+  padding: 0.5vw;
+  width: 10vw;
+}
+.skillsContainer{
+  display: flex;
+  gap:2vw;
+}
+.selectedSkills {
+  width: 15vw;
+  display: flex;
+  gap: 0.5vw;
+  flex-wrap: wrap;
+}
+.filteredSkill {
+  width: 5vw;
+  height: 2vw;
+  padding: 0.3vw;
+  background: #ffeeee;
+  color: var(--dark-color);
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.deleteFilter {
+  width: 2vw;
+  height: 2vw;
+  text-align: center;
+  background-color: #ff6b6b;
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
