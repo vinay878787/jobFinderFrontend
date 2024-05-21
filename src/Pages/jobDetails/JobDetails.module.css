@@ -1,51 +1,154 @@
-.jobDetailsContainer{
-    display: flex;
-    flex-direction: column;
-    gap:3.5vw;
-    border: 2px solid blue;
-    align-items: center;
-    
+.fullContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #ffeeee;
+  color: #999999;
+  font-family: ;
 }
-.jobDetailsContainer1{
-    width:60vw;
-    text-align: center;
-    position: sticky;
-    top:130px;
-    border:2px solid orange;
-    padding: 2vw;
+
+.jobDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5vw;
+  align-items: center;
+  padding: 2vw 0;
 }
-.jobDetailsContainer2{
-    display: flex;
-    flex-direction: column;
-    gap:2vw;
-    width:60vw;
-    border:2px solid green;
-    padding: 2vw;
+
+.jobDetailsContainer1 {
+  width: 60vw;
+  text-align: center;
+  position: sticky;
+  top: 130px;
+  padding: 2vw;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #000;
+  border-radius: 8px;
 }
-.logo{
-    width:3vw;
+
+.jobTitle {
+  color: #000;
+  font-size: 1.8em;
+  margin-bottom: 0.5vw;
 }
-.jobDetailsFirstSubContainer{
-    display: flex;
-    gap:1vw;
-    align-items: center;
+
+.location {
+  color: #ed5353;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: 0.5vw;
 }
-.companyDetails{
-    display: flex;
-    align-items: center;
+
+.jobDetailsContainer2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  width: 60vw;
+  padding: 2vw;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
-.semiSubContainer2{
-    display: flex;
-    justify-content: space-between;
+
+.logo {
+  width: 3vw;
+  border-radius: 50%;
 }
-.semiSubContainer2>button{
-    width:8vw;
+
+.jobDetailsFirstSubContainer {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
 }
-.jobDetailsThirdSubContainer{
-    display: flex;
-    gap:2vw;
+
+.companyDetails {
+  display: flex;
+  align-items: center;
 }
-.skillContainer{
-    display: flex;
-    gap:2vw;
+
+.semiSubContainer2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.semiSubContainer2 > button {
+  width: 8vw;
+  padding: 0.5vw;
+  background-color: #ed5353;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.semiSubContainer2 > button:hover {
+  background-color: #d94a4a;
+}
+
+.jobDetailsThirdSubContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.skillContainer {
+  display: flex;
+  gap: 1vw;
+  flex-wrap: wrap;
+}
+
+.skillBtn {
+  color: #595959;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5vw 1vw;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #ffeeee;
+}
+
+.additionalInformation {
+  margin-top: 1.5vw;
+}
+
+.about h2,
+.job h2,
+.skills h2,
+.additionalInformation h2 {
+  color: #000;
+  margin-bottom: 0.5vw;
+}
+
+.about,
+.job,
+.skills,
+.additionalInformation {
+  color: #595959;
+  border-radius: 4px;
+  margin-bottom: 2vw;
+}
+
+.about {
+  color: #000;
+}
+
+.aboutData {
+  color: #595959;
+}
+
+.stipendContainer1 {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.salary {
+  color: #595959;
 }

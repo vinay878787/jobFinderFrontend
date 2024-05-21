@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import NavBar from "../../components/AuthWrapper/NavBar";
 import styles from "./JobDetails.module.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useJobContext } from "../../Context/JobContext";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 
 function JobDetails() {
+  const [token] = useState(localStorage.getItem("token"));
   const { jobId } = useParams();
+  const {jobIDS,setJobIDS} = useJobContext()
+  const navigate = useNavigate();
   const [jobDetails, setJobDetails] = useState({
-    title: "",
+    jobTitle: "",
     company: "",
     salary: "",
     jobType: "",
@@ -28,6 +32,7 @@ function JobDetails() {
 
   const getData = async () => {
     const response = await axios.get(`${BACKEND_URL}/details/${jobId}`);
+    setJobIDS(jobId);
     console.log(response);
     setJobDetails({
       title: response.data.jobDetails[0].jobTitle,
@@ -44,8 +49,12 @@ function JobDetails() {
     });
   };
 
+  const handleEdit = ()=>{
+    navigate("/create", { state: { jobDetails } });
+  }
+
   return (
-    <>
+    <div className={styles.fullContainer}>
       <NavBar />
 
       <div className={styles.jobDetailsContainer}>
@@ -59,25 +68,31 @@ function JobDetails() {
         <div className={styles.duration}>1w ago</div>
         <div className={styles.jobType}>{jobDetails.jobType}</div>
         <div className={styles.companyDetails}>
-        <img src={jobDetails.logoUrl} className={styles.logo}></img>
-        <div className={styles.company}>{jobDetails.company}</div>
+        <img className={styles.logo} src={jobDetails.logoUrl}></img>
         </div>
         </div>
         <div className={styles.jobDetailsSecondSubContainer}>
         <div className={styles.semiSubContainer2}>
-        <h1>{jobDetails.title}</h1>
-        <button className={styles.editBtn}>Edit job</button>
+        <h1 className={styles.jobTitle}>{jobDetails.title}</h1>
+        {token?<button className={styles.editBtn} onClick={handleEdit}>Edit job</button>:""}
         </div>
-        <div>{jobDetails.location}</div>
+        <div className={styles.location}>{jobDetails.location}</div>
         </div>
         <div className={styles.jobDetailsThirdSubContainer}>
+        <div className={styles.stipendContainer}>
+        <div className={styles.stipendContainer1}>
+        <img src="/money.svg"></img>
         <div>Stipend</div>
-        <div>Rs{jobDetails.salary}/month</div>
+        </div>
+        <div className={styles.stipendContainer2}>
+        </div>
+        <div className={styles.salary}>Rs{jobDetails.salary}/month</div>
+        </div>
         </div>
         <div className={styles.jobDetailsFourthSubContainer}>
         <div className={styles.about}>
         <h2>About company</h2>
-        <div>{jobDetails.about}</div>
+        <div className={styles.aboutData}>{jobDetails.about}</div>
         </div>
 
         <div className={styles.job}>
@@ -102,7 +117,7 @@ function JobDetails() {
         </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

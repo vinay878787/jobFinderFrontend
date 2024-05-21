@@ -4,13 +4,16 @@ import styles from "./JobPost.module.css";
 import { useNavigate } from "react-router-dom";
 
 function JobPost({ posts }) {
-  const { setJobId, jobId } = useJobContext();
+  const { jobId, setJobId} = useJobContext();
   const navigate = useNavigate();
 
   const handleViewDetails = (jobID) => {
+    console.log("JOBS ID :", jobID);
     setJobId(jobID);
-    navigate(`/jobDetails/${jobId}`);
+    console.log("JOBS ID (Updated):", jobID); // Updated jobId value
+    navigate(`/jobDetails/${jobID}`); // Use jobID here instead of jobId
   };
+  
   return (
     <div className={styles.jobContainerWrapper}>
       {Array.isArray(posts) && posts.length === 0 ? (
@@ -31,7 +34,7 @@ function JobPost({ posts }) {
               </div>
             </div>
             <div className={styles.secondSubJobContainer}>
-              <span>{post.salary}</span>
+              <span>₹{post.salary}</span>
               <img src="/flag.svg" alt="flag" />
               <span>{post.location}</span>
             </div>

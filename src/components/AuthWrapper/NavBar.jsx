@@ -13,7 +13,7 @@ function NavBar() {
   }
   return (
     <div className={styles.navContainer}>
-      <div className={styles.navSubContainer1}>Jobfinder</div>
+      <NavLink className={styles.navSubContainer1} to="/">Jobfinder</NavLink>
       <div className={styles.navSubContainer2}>
         {userData.token ? (
           <NavLink to="/create" className={styles.navItems}>

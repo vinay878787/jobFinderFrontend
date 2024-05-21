@@ -61,6 +61,7 @@ function Home() {
               name="search"
               value={search}
               onChange={handleSearch}
+              className={styles.searchBars}
             />
           </div>
           <div className={styles.filterSkills}>
@@ -84,12 +85,12 @@ function Home() {
               {skills.map((skill) => (
                 <div key={skill} className={styles.filteredSkill}>
                   {skill}
-                  <span
+                  <div
                     className={styles.deleteFilter}
                     onClick={() => deleteSkill(skill)}
                   >
                     X
-                  </span>
+                  </div>
                 </div>
               ))}
             </div>

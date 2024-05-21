@@ -143,6 +143,7 @@ function Register() {
                 value={registerValues.name}
                 onChange={handleInputChange}
                 name="name"
+                className={styles.input}
               />
               <p className={styles.error}>{errors.name}</p>
             </label>
@@ -154,6 +155,7 @@ function Register() {
                 value={registerValues.email}
                 onChange={handleInputChange}
                 name="email"
+                className={styles.input}
               />
               <p className={styles.error}>{errors.email}</p>
             </label>
@@ -165,6 +167,7 @@ function Register() {
                 value={registerValues.phone}
                 onChange={handleInputChange}
                 name="phone"
+                className={styles.input}
               />
               <p className={styles.error}>{errors.phone}</p>
             </label>
@@ -176,6 +179,7 @@ function Register() {
                 value={registerValues.password}
                 onChange={handleInputChange}
                 name="password"
+                className={styles.input}
               />
               <p className={styles.error}>{errors.password}</p>
             </label>
@@ -186,6 +190,7 @@ function Register() {
                 name="isChecked"
                 checked={registerValues.isChecked}
                 onChange={handleInputChange}
+                className={styles.input}
               />
               By creating an account, I agree to our terms of use and privacy
               policy

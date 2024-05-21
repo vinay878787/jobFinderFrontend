@@ -1,22 +1,27 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./JobPost.module.css";
+import { useJobContext } from "../../Context/JobContext";
 import axios from "axios";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 function JobPost() {
+  const { jobId ,jobIDS} = useJobContext();
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("USER DATA : ", location);
+  const userData = location?.state?.jobDetails || "";
   const [createDetails, setCreateDetails] = useState({
-    company: "",
-    logo: "",
-    jobTitle: "",
-    salary: "",
-    jobType: "",
-    jobStyle: "",
-    location: "",
-    description: "",
-    about: "",
-    skills: [],
-    additionalInformation: "",
+    company: userData.company || "",
+    logo: userData.logoUrl || "",
+    jobTitle: userData.title || "",
+    salary: userData.salary || "",
+    jobType: userData.jobType || "",
+    jobStyle: userData.jobStyle || "",
+    location: userData.location || "",
+    description: userData.description || "",
+    about: userData.about || "",
+    skills: userData.skills || [],
+    additionalInformation: userData.additionalInformation || "",
   });
 
   const handleChange = (e) => {
@@ -46,12 +51,21 @@ function JobPost() {
     try {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      const response = await axios.post(`${BACKEND_URL}/create`, createDetails);
+
+      const url = userData
+        ? `${BACKEND_URL}/edit/${jobIDS}`
+        : `${BACKEND_URL}/create`;
+
+      const response = userData
+        ? await axios.put(url, createDetails)
+        : await axios.post(url, createDetails);
+
       console.log(response);
+      alert("Post created successfully");
       setCreateDetails({
         company: "",
         logo: "",
-        jobTitle: "",
+        title: "",
         salary: "",
         jobType: "",
         jobStyle: "",
@@ -64,6 +78,7 @@ function JobPost() {
       navigate("/");
     } catch (error) {
       console.log("error posting the data!");
+      alert("something went wrong");
     }
   };
 
@@ -212,21 +227,21 @@ function JobPost() {
               <option>Javascript</option>
               <option>React</option>
             </select>
-            
-              <div className={styles.selectedSkills}>
-                {createDetails.skills.map((skill) => (
-                  <div key={skill} className={styles.filteredSkill}>
-                    {skill}
-                    <span
-                      className={styles.deleteFilter}
-                      onClick={() => deleteSkill(skill)}
-                    >
-                      X
-                    </span>
-                  </div>
-                ))}
-              </div>
+
+            <div className={styles.selectedSkills}>
+              {createDetails.skills.map((skill) => (
+                <div key={skill} className={styles.filteredSkill}>
+                  {skill}
+                  <span
+                    className={styles.deleteFilter}
+                    onClick={() => deleteSkill(skill)}
+                  >
+                    X
+                  </span>
+                </div>
+              ))}
             </div>
+          </div>
 
           <div className={styles.createSubContainer}>
             <label htmlFor="information">Additional information </label>
@@ -243,7 +258,11 @@ function JobPost() {
 
           <div className={styles.createBtn}>
             <button className={styles.cancelBtn}>Cancel</button>
-            <button className={styles.addBtn}>+Add Job</button>
+            {userData ? (
+              <button className={styles.addBtn}>Update</button>
+            ) : (
+              <button className={styles.addBtn}>+Add Job</button>
+            )}
           </div>
         </form>
       </div>

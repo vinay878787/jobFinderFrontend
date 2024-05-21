@@ -30,7 +30,7 @@
   font-weight: 600;
   color: #525252;
 }
-input {
+.input {
   width: 30vw;
   padding: 0.9vw;
   border: 2px solid #c2c2c2;

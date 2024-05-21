@@ -38,7 +38,7 @@
   font-weight: 900;
 }
 
-input[type="text"] {
+.searchBars{
   width: 40vw;
   padding-left: 30px;
   border-radius: 0.5vw;
@@ -76,7 +76,7 @@ input[type="text"] {
   flex-wrap: wrap;
 }
 .filteredSkill {
-  width: 5vw;
+  width: 7vw;
   height: 2vw;
   padding: 0.3vw;
   background: #ffeeee;
