@@ -3,7 +3,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthWrapper from "../../components/AuthWrapper/AuthWrapper";
-import loginCover from "../../assets/loginCover.svg";
 import styles from "./Register.module.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -212,7 +211,7 @@ function Register() {
           <h1 className={styles.backgroundImgHeading}>
             Your Personal Job Finder
           </h1>
-          <img src={loginCover} className={styles.bgImage} alt="Background" />
+          <img src="/loginCover.png" className={styles.bgImage} alt="Background" />
         </div>
       </div>
     </AuthWrapper>

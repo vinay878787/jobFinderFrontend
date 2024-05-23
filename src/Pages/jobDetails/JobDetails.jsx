@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Loader from "../../components/AuthWrapper/Loader"
 import NavBar from "../../components/AuthWrapper/NavBar";
 import styles from "./JobDetails.module.css";
 import axios from "axios";
@@ -9,7 +10,7 @@ const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 function JobDetails() {
   const [token] = useState(localStorage.getItem("token"));
   const { jobId } = useParams();
-  const {jobIDS,setJobIDS} = useJobContext()
+  const {jobIDS,setJobIDS,isLoading ,setIsLoading} = useJobContext()
   const navigate = useNavigate();
   const [jobDetails, setJobDetails] = useState({
     jobTitle: "",
@@ -31,9 +32,11 @@ function JobDetails() {
   }, [jobId]);
 
   const getData = async () => {
+    setIsLoading(true);
     const response = await axios.get(`${BACKEND_URL}/details/${jobId}`);
     setJobIDS(jobId);
     console.log(response);
+    setIsLoading(false);
     setJobDetails({
       title: response.data.jobDetails[0].jobTitle,
       company: response.data.jobDetails[0].company,
@@ -54,6 +57,8 @@ function JobDetails() {
   }
 
   return (
+    <>
+    {isLoading && <Loader/>}
     <div className={styles.fullContainer}>
       <NavBar />
 
@@ -118,6 +123,7 @@ function JobDetails() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

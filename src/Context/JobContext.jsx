@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from "react";
 const jobContext = createContext();
 
 const JobContextProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [jobId, setJobId] = useState();
   const [jobIDS, setJobIDS] = useState();
   const [userData, setUserData] = useState({
@@ -13,7 +14,16 @@ const JobContextProvider = ({ children }) => {
 
   return (
     <jobContext.Provider
-      value={{ jobId, setJobId, userData, setUserData, jobIDS, setJobIDS }}
+      value={{
+        jobId,
+        setJobId,
+        userData,
+        setUserData,
+        jobIDS,
+        setJobIDS,
+        isLoading,
+        setIsLoading,
+      }}
     >
       {children}
     </jobContext.Provider>

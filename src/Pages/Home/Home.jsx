@@ -3,14 +3,16 @@ import axios from "axios";
 import NavBar from "../../components/AuthWrapper/NavBar";
 import { IoSearchOutline } from "react-icons/io5";
 import { DEFAULT_SKILLS } from "../../utils/constants";
+import Loader from "../../components/AuthWrapper/Loader"
 import JobPost from "../../components/AuthWrapper/JobPost";
 import styles from "./Home.module.css";
+import { useJobContext } from "../../Context/JobContext";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND_URL;
 function Home() {
   const [search, setSearch] = useState("");
   const [skills, setSkills] = useState([]);
   const [jobs, setJobs] = useState([]);
-
+  const {isLoading , setIsLoading} = useJobContext()
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -25,10 +27,11 @@ function Home() {
   }, []);
 
   const getAllJobs = async () => {
+    setIsLoading(true);
     var response = await axios.get(
       `${BACKEND_URL}/all/?title=${search}&skills=${skills}`
     );
-
+    setIsLoading(false)
     console.log(response.data.message);
     setJobs(response.data.message);
     if (response.data.message.length === 0) {
@@ -49,6 +52,8 @@ function Home() {
   };
 
   return (
+    <>
+    {isLoading && <Loader/>}
     <div>
       <NavBar />
       <div className={styles.filterWrapper}>
@@ -108,6 +113,7 @@ function Home() {
       </div>
       <JobPost posts={jobs} />
     </div>
+    </>
   );
 }
 
